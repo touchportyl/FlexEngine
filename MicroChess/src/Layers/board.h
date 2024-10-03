@@ -1,3 +1,4 @@
+#if 0
 #pragma once
 
 #include <FlexEngine.h>
@@ -18,6 +19,10 @@ namespace MicroChess
 
   private:
     void SetupBoard();
+
+    static float m_ScaleDebugTest;
+    static Vector3 m_RotateDebugTest;
   };
 
 }
+#endif

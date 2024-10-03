@@ -27,6 +27,15 @@
     <Filter Include="src\Physics">
       <UniqueIdentifier>{239557ac-711e-401c-ae1f-b024dff647f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\CharacterMoves">
+      <UniqueIdentifier>{7932477a-3799-4ec1-ab14-d913069f8143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\BattleSystems">
+      <UniqueIdentifier>{61a2e2be-1880-4d04-bfd6-b8a5dcd4c6b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Editor">
+      <UniqueIdentifier>{fbdd6626-7250-4b66-a9d0-6bd2380b98f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\texture.frag">
@@ -70,6 +79,57 @@
     <ClInclude Include="src\Components\physics.h">
       <Filter>src\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Components\battlecomponents.h">
+      <Filter>src\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\battle.h">
+      <Filter>src\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterMoves\moves.h">
+      <Filter>src\CharacterMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\battledisplay.h">
+      <Filter>src\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BattleSystems\battlesystem.h">
+      <Filter>src\BattleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BattleSystems\targetingsystem.h">
+      <Filter>src\BattleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BattleSystems\turnorderdisplay.h">
+      <Filter>src\BattleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\charactercomponents.h">
+      <Filter>src\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\overworld.h">
+      <Filter>src\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BattleSystems\physicssystem.h">
+      <Filter>src\BattleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\characterinput.h">
+      <Filter>src\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\editorlayer.h">
+      <Filter>src\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\hierarchyview.h">
+      <Filter>src\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\editor.h">
+      <Filter>src\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\inspector.h">
+      <Filter>src\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\editorgui.h">
+      <Filter>src\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\componentviewer.h">
+      <Filter>src\Editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -101,6 +161,57 @@
     </ClCompile>
     <ClCompile Include="src\Components\physics.cpp">
       <Filter>src\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\battlecomponents.cpp">
+      <Filter>src\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layers\battle.cpp">
+      <Filter>src\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterMoves\moves.cpp">
+      <Filter>src\CharacterMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\battledisplay.cpp">
+      <Filter>src\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BattleSystems\battlesystem.cpp">
+      <Filter>src\BattleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BattleSystems\targetingsystem.cpp">
+      <Filter>src\BattleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BattleSystems\turnorderdisplay.cpp">
+      <Filter>src\BattleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\charactercomponents.cpp">
+      <Filter>src\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layers\overworld.cpp">
+      <Filter>src\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BattleSystems\physicssystem.cpp">
+      <Filter>src\BattleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\characterinput.cpp">
+      <Filter>src\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layers\editorlayer.cpp">
+      <Filter>src\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\hierarchyview.cpp">
+      <Filter>src\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\editor.cpp">
+      <Filter>src\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\inspector.cpp">
+      <Filter>src\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\editorgui.cpp">
+      <Filter>src\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\componentviewer.cpp">
+      <Filter>src\Editor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

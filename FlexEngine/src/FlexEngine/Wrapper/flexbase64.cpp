@@ -2,6 +2,7 @@
 
 #include "flexbase64.h"
 
+#pragma comment(lib, "Crypt32.lib") // Links the Crypt32.lib library to the project.
 #include <wincrypt.h> // CryptBinaryToStringA, CryptStringToBinaryA
 
 namespace FlexEngine

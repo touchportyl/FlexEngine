@@ -1,6 +1,7 @@
 #include "mainlayer.h"
 
 #include "Components/Components.h"
+#include "flxdata.h"
 
 namespace OpenGLRendering
 {
@@ -140,7 +141,6 @@ namespace OpenGLRendering
     CreateDefaultScene();
 
     // Renderer Setup
-
     OpenGLRenderer::EnableDepthTest();
   }
 
@@ -1243,7 +1243,7 @@ ImGui::EndMainMenuBar();
         props.color_to_multiply = _sprite->color_to_multiply;
         props.alignment = static_cast<Renderer2DProps::Alignment>(_sprite->alignment);
 
-        OpenGLRenderer::DrawTexture2D(props);
+        OpenGLSpriteRenderer::DrawTexture2D(props);
       }
 
       // pop settings

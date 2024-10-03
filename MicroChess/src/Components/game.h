@@ -1,9 +1,11 @@
+#if 0
+
 #pragma once
 
 #include <FlexEngine.h>
 using namespace FlexEngine;
 
-namespace MicroChess
+namespace ChronoShift
 {
 
   enum CursorType : int
@@ -71,3 +73,5 @@ namespace MicroChess
   };
 
 }
+
+#endif

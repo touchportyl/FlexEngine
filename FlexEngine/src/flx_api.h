@@ -2,7 +2,8 @@
 
 // Macro file for defining the API and calling conventions for the FlexEngine library.
 
-#ifdef _WIN32
+// The dll part has been disabled because the FlexEngine library is not currently being built as a DLL.
+#ifdef false //_WIN32
 
   #pragma warning(disable: 4251) // Disable warning about exporting STL classes in DLLs
 

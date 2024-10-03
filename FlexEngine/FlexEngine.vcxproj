@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -125,16 +125,16 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;crypt32.lib;ImGuid.lib;fmodstudioL_vc.lib;assimp-vc143-mtd.lib;freetyped.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;fastgltf.lib;fastgltf_simdjson.lib;ImGuid.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;ImGuid.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)third_party\lib\fmod\core\fmodL.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudioL.dll" "$(OutDir)" /s /r /y /q</Command>
-    </PostBuildEvent>
-    <PreLinkEvent>
       <Command>xcopy "$(SolutionDir)third_party\lib\assimp\assimp-vc143-mtd.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)third_party\lib\fmod\core\fmodL.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudioL.dll" "$(OutDir)" /s /r /y /q</Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -160,16 +160,16 @@ xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudioL.dll" "$(OutDir)" /s
       <IgnoreSpecificDefaultLibraries>libcmtd.lib;libcmt.lib;msvcrtd.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;fastgltf.lib;fastgltf_simdjson.lib;ImGui.lib;fmodstudio_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;ImGui.lib;fmodstudio_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)third_party\lib\fmod\core\fmod.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudio.dll" "$(OutDir)" /s /r /y /q</Command>
-    </PostBuildEvent>
-    <PreLinkEvent>
       <Command>xcopy "$(SolutionDir)third_party\lib\assimp\assimp-vc143-mt.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)third_party\lib\fmod\core\fmod.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudio.dll" "$(OutDir)" /s /r /y /q</Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -187,6 +187,7 @@ xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudio.dll" "$(OutDir)" /s 
     <ClCompile Include="src\FlexEngine\flexformatter.cpp" />
     <ClCompile Include="src\FlexEngine\FlexMath\mathconversions.cpp" />
     <ClCompile Include="src\FlexEngine\FlexMath\mathfunctions.cpp" />
+    <ClCompile Include="src\FlexEngine\FlexMath\matrix3x3.cpp" />
     <ClCompile Include="src\FlexEngine\FlexMath\matrix4x4.cpp" />
     <ClCompile Include="src\FlexEngine\FlexMath\quaternion.cpp" />
     <ClCompile Include="src\FlexEngine\FlexMath\vector2.cpp" />
@@ -194,18 +195,22 @@ xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudio.dll" "$(OutDir)" /s 
     <ClCompile Include="src\FlexEngine\FlexMath\vector4.cpp" />
     <ClCompile Include="src\FlexEngine\flexid.cpp" />
     <ClCompile Include="src\FlexEngine\flexprefs.cpp" />
+    <ClCompile Include="src\FlexEngine\flxdata.cpp" />
+    <ClCompile Include="src\FlexEngine\FMOD\FMODWrapper.cpp" />
+    <ClCompile Include="src\FlexEngine\FMOD\Sound.cpp" />
     <ClCompile Include="src\FlexEngine\input.cpp" />
     <ClCompile Include="src\FlexEngine\flexlogger.cpp" />
-    <ClCompile Include="src\FlexEngine\Loader\fmodstudio.cpp" />
-    <ClCompile Include="src\FlexEngine\playerprefs.cpp" />
     <ClCompile Include="src\FlexEngine\Reflection\primitives.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\buffer.cpp" />
+    <ClCompile Include="src\FlexEngine\Renderer\DebugRenderer\debugrenderer.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglbuffer.cpp" />
+    <ClCompile Include="src\FlexEngine\Renderer\OpenGL\opengldebugrenderer.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglmaterial.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglmesh.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglmodel.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglrenderer.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglshader.cpp" />
+    <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglspriterenderer.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\opengltexture.cpp" />
     <ClCompile Include="src\FlexEngine\Renderer\OpenGL\openglvertex.cpp" />
     <ClCompile Include="src\FlexEngine\StateManager\statemanager.cpp" />
@@ -245,6 +250,7 @@ xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudio.dll" "$(OutDir)" /s 
     <ClInclude Include="src\FlexEngine\FlexMath\mathconversions.h" />
     <ClInclude Include="src\FlexEngine\FlexMath\mathfunctions.h" />
     <ClInclude Include="src\FlexEngine\FlexMath\matrix1x1.h" />
+    <ClInclude Include="src\FlexEngine\FlexMath\matrix3x3.h" />
     <ClInclude Include="src\FlexEngine\FlexMath\matrix4x4.h" />
     <ClInclude Include="src\FlexEngine\FlexMath\mathconstants.h" />
     <ClInclude Include="src\FlexEngine\FlexMath\quaternion.h" />
@@ -254,18 +260,22 @@ xcopy "$(SolutionDir)third_party\lib\fmod\studio\fmodstudio.dll" "$(OutDir)" /s 
     <ClInclude Include="src\FlexEngine\FlexMath\vector4.h" />
     <ClInclude Include="src\FlexEngine\flexid.h" />
     <ClInclude Include="src\FlexEngine\flexprefs.h" />
+    <ClInclude Include="src\FlexEngine\flxdata.h" />
+    <ClInclude Include="src\FlexEngine\FMOD\FMODWrapper.h" />
+    <ClInclude Include="src\FlexEngine\FMOD\Sound.h" />
     <ClInclude Include="src\FlexEngine\input.h" />
-    <ClInclude Include="src\FlexEngine\Loader\fmodstudio.h" />
     <ClInclude Include="src\FlexEngine\flexlogger.h" />
-    <ClInclude Include="src\FlexEngine\playerprefs.h" />
     <ClInclude Include="src\FlexEngine\Reflection\base.h" />
     <ClInclude Include="src\FlexEngine\Renderer\buffer.h" />
+    <ClInclude Include="src\FlexEngine\Renderer\DebugRenderer\debugrenderer.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglbuffer.h" />
+    <ClInclude Include="src\FlexEngine\Renderer\OpenGL\opengldebugrenderer.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglmaterial.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglmesh.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglmodel.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglrenderer.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglshader.h" />
+    <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglspriterenderer.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\opengltexture.h" />
     <ClInclude Include="src\FlexEngine\Renderer\OpenGL\openglvertex.h" />
     <ClInclude Include="src\FlexEngine\StateManager\state.h" />

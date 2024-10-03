@@ -9,7 +9,7 @@ namespace FlexEngine
     const std::unordered_map<std::string, std::set<std::string>> safe =
     {
       // FlexEngine files
-      { "flx", { ".flxscene", ".flxscript", ".flxprefab", ".flxmaterial" } },
+      { "flx", { ".flxscene", ".flxscript", ".flxprefab", ".flxmaterial", ".flxdata"}},
       // FlexEngine binary files
       { "flb", { ".flbscene", ".flbscript", ".flbprefab", ".flbmaterial" } },
       // Data files (txt, json, etc.)

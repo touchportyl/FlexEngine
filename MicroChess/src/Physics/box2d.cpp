@@ -4,100 +4,167 @@
 #include "Components/physics.h"
 #include "Components/rendering.h"
 
-namespace MicroChess
+namespace ChronoShift
 {
 
   // update PieceStatus based on mouse input
   void Box2D()
   {
     Vector2 mouse_position = Input::GetMousePosition();
-    bool mouse_clicked = Input::GetMouseButtonDown(GLFW_MOUSE_BUTTON_LEFT);
+    //bool mouse_clicked = Input::GetMouseButtonDown(GLFW_MOUSE_BUTTON_LEFT);
 
-    for (auto& entity : FlexECS::Scene::GetActiveScene()->View<IsActive, Parent, Position, Scale, BoundingBox2D, OnHover>())
-    {
-      if (!entity.GetComponent<IsActive>()->is_active) continue;
+    //On Hover
+    //for (auto& entity : FlexECS::Scene::GetActiveScene()->View<IsActive, Parent, Position, Scale, Rotation, Transform, BoundingBox2D, OnHover>())
+    //{
+    //  if (!entity.GetComponent<IsActive>()->is_active) continue;
 
-      auto& parent = entity.GetComponent<Parent>()->parent;
-      auto global_position = parent.HasComponent<Position>() ? parent.GetComponent<Position>()->position : Vector2::Zero;
-      auto global_scale = parent.HasComponent<Scale>() ? parent.GetComponent<Scale>()->scale : Vector2::One;
-      
-      auto& position = entity.GetComponent<Position>()->position;
-      auto& scale = entity.GetComponent<Scale>()->scale;
+    //  auto& local_transform = entity.GetComponent<Transform>()->transform;
+    //  if (!entity.GetComponent<Transform>()->is_dirty) continue;
 
-      global_position += position;
-      global_scale *= scale;
+    //  auto& parent = entity.GetComponent<Parent>()->parent;
+    //  auto parent_transform = parent.GetComponent<Transform>();
 
-      auto boundingbox = entity.GetComponent<BoundingBox2D>()->size;
-      boundingbox *= global_scale;
+    //  auto& local_position = entity.GetComponent<Position>()->position;
+    //  auto& local_scale = entity.GetComponent<Scale>()->scale;
+    //  auto& local_rotation = entity.GetComponent<Rotation>()->rotation;
 
-      auto hover_status = entity.GetComponent<OnHover>();
+    //  // calculate the transform
 
-      // offset bounding box to be centered
-      global_position -= boundingbox * 0.5f;
+    //  Matrix4x4 local_translation_matrix = Matrix4x4::Translate(Matrix4x4::Identity, Vector3(-local_position.x, local_position.y, 0.0f));
+    //  Matrix4x4 rotation_matrix = Quaternion::FromEulerAnglesDeg(local_rotation).ToRotationMatrix();
+    //  Matrix4x4 scale_matrix = Matrix4x4::Scale(Matrix4x4::Identity, local_scale);
 
-      // cleanup before detection
-      hover_status->on_enter = false;
-      hover_status->on_exit = false;
+    //  local_transform = parent_transform->transform * local_translation_matrix * rotation_matrix * scale_matrix;
+    //  //parent_transform->transform.Dump();
+    //  //{
+    //  //    1.0f, 0.0f, 0.0f, 0.0f,
+    //  //        1.0f, 0.0f, 0.0f, 0.0f,
+    //  //        1.0f, 0.0f, 0.0f, 0.0f,
+    //  //        1.0f, 0.0f, 0.0f, 0.0f
+    //  //}
+    //  //TODO: Will have to change this to move outside
+    //  //auto boundingbox = entity.GetComponent<BoundingBox2D>()->size;
+    //  //boundingbox *= global_scale;
 
-      // collision detection
-      if (
-        mouse_position.x > global_position.x && mouse_position.x < global_position.x + boundingbox.x &&
-        mouse_position.y > global_position.y && mouse_position.y < global_position.y + boundingbox.y
-      )
-      {
-        if (!hover_status->is_hovering)
-        {
-          hover_status->is_hovering = true;
-          hover_status->on_enter = true;
-        }
-      }
-      else
-      {
-        if (hover_status->is_hovering)
-        {
-          hover_status->is_hovering = false;
-          hover_status->on_exit = true;
-        }
-      }
-    }
+    //  //auto hover_status = entity.GetComponent<OnHover>();
 
-    for (auto& entity : FlexECS::Scene::GetActiveScene()->View<IsActive, Parent, Position, Scale, BoundingBox2D, OnClick>())
-    {
-      if (!entity.GetComponent<IsActive>()->is_active) continue;
+    //  //// offset bounding box to be centered
+    //  //global_position -= boundingbox * 0.5f;
 
-      auto& click_status = entity.GetComponent<OnClick>()->is_clicked;
+    //  //// cleanup before detection
+    //  //hover_status->on_enter = false;
+    //  //hover_status->on_exit = false;
 
-      // guard
-      // skip detection if mouse is not clicked
-      if (!mouse_clicked)
-      {
-        click_status = false;
-        continue;
-      }
+    //  //// collision detection
+    //  //if (
+    //  //  mouse_position.x > global_position.x && mouse_position.x < global_position.x + boundingbox.x &&
+    //  //  mouse_position.y > global_position.y && mouse_position.y < global_position.y + boundingbox.y
+    //  //)
+    //  //{
+    //  //  if (!hover_status->is_hovering)
+    //  //  {
+    //  //    hover_status->is_hovering = true;
+    //  //    hover_status->on_enter = true;
+    //  //  }
+    //  //}
+    //  //else
+    //  //{
+    //  //  if (hover_status->is_hovering)
+    //  //  {
+    //  //    hover_status->is_hovering = false;
+    //  //    hover_status->on_exit = true;
+    //  //  }
+    //  //}
+    //}
+    //On Click
+    //for (auto& entity : FlexECS::Scene::GetActiveScene()->View<IsActive, Parent, Position, Scale, Rotation, Transform, BoundingBox2D, OnClick>())
+    //{
+    //  if (!entity.GetComponent<IsActive>()->is_active) continue;
 
-      auto& parent = entity.GetComponent<Parent>()->parent;
-      auto global_position = parent.HasComponent<Position>() ? parent.GetComponent<Position>()->position : Vector2::Zero;
-      auto global_scale = parent.HasComponent<Scale>() ? parent.GetComponent<Scale>()->scale : Vector2::One;
+    //  auto& click_status = entity.GetComponent<OnClick>()->is_clicked;
 
-      auto& position = entity.GetComponent<Position>()->position;
-      auto& scale = entity.GetComponent<Scale>()->scale;
+    //  // guard
+    //  // skip detection if mouse is not clicked
+    //  if (!mouse_clicked)
+    //  {
+    //    click_status = false;
+    //    continue;
+    //  }
 
-      global_position += position;
-      global_scale *= scale;
+    //  auto& parent = entity.GetComponent<Parent>()->parent;
+    //  auto global_position = parent.HasComponent<Position>() ? parent.GetComponent<Position>()->position : Vector2::Zero;
+    //  auto global_scale = parent.HasComponent<Scale>() ? parent.GetComponent<Scale>()->scale : Vector2::One;
+    //  auto global_rotation = parent.HasComponent<Rotation>() ? parent.GetComponent<Rotation>()->rotation : Vector3::Zero;
 
-      auto boundingbox = entity.GetComponent<BoundingBox2D>()->size;
-      boundingbox *= global_scale;
+    //  auto& position = entity.GetComponent<Position>()->position;
+    //  auto& scale = entity.GetComponent<Scale>()->scale;
+    //  auto& rotation = entity.GetComponent<Rotation>()->rotation;
 
-      // offset bounding box to be centered
-      global_position -= boundingbox * 0.5f;
+    //  global_position += position;
+    //  global_scale *= scale;
+    //  global_rotation += rotation;
 
-      // collision detection
-      click_status = (
-        mouse_position.x > global_position.x && mouse_position.x < global_position.x + boundingbox.x &&
-        mouse_position.y > global_position.y && mouse_position.y < global_position.y + boundingbox.y
-      );
-    }
+    //  auto boundingbox = entity.GetComponent<BoundingBox2D>()->size;
+    //  boundingbox *= global_scale;
 
+    //  // offset bounding box to be centered
+    //  global_position -= boundingbox * 0.5f;
+
+    //  // collision detection
+    //  click_status = (
+    //    mouse_position.x > global_position.x && mouse_position.x < global_position.x + boundingbox.x &&
+    //    mouse_position.y > global_position.y && mouse_position.y < global_position.y + boundingbox.y
+    //  );
+    //}
+    
+    //TODO -> RUN THROUGH FOR LOOP FOR CHILDREN
+    //No parent
+    //for (auto& entity : FlexECS::Scene::GetActiveScene()->View<IsActive, Transform>())
+    //{
+    //    Parent* test = nullptr;
+    //    if (!entity.GetComponent<IsActive>()->is_active /*|| entity.TryGetComponent<Parent>(test)*/) continue;
+    //
+    //    auto& local_transform = entity.GetComponent<Transform>()->transform;
+    //    if (!entity.GetComponent<Transform>()->is_dirty) continue;
+    //
+    //    auto& local_position = entity.GetComponent<Position>()->position;
+    //    auto& local_scale = entity.GetComponent<Scale>()->scale;
+    //    auto& local_rotation = entity.GetComponent<Rotation>()->rotation;
+    //
+    //    // calculate the transform
+    //
+    //    Matrix4x4 local_translation_matrix = Matrix4x4::Translate(Matrix4x4::Identity, Vector3(-local_position.x, local_position.y, 0.0f));
+    //    Matrix4x4 rotation_matrix = Quaternion::FromEulerAnglesDeg(local_rotation).ToRotationMatrix();
+    //    Matrix4x4 scale_matrix = Matrix4x4::Scale(Matrix4x4::Identity, local_scale);
+    //
+    //    local_transform = local_translation_matrix * rotation_matrix * scale_matrix;
+    //    
+    //    Log::Debug(FlexECS::Scene::GetActiveScene()->Internal_StringStorage_Get(*entity.GetComponent<EntityName>()));
+    //}
+    //// With parent
+    //for (auto& entity : FlexECS::Scene::GetActiveScene()->View<IsActive, Transform, Parent>())
+    //{
+    //    if (!entity.GetComponent<IsActive>()->is_active) continue;
+
+    //    auto& local_transform = entity.GetComponent<Transform>()->transform;
+    //    if (!entity.GetComponent<Transform>()->is_dirty) continue;
+
+    //    Matrix4x4 parent_transform = entity.GetComponent<Parent>()->parent.GetComponent<Transform>()->transform;
+
+    //    auto& local_position = entity.GetComponent<Position>()->position;
+    //    auto& local_scale = entity.GetComponent<Scale>()->scale;
+    //    auto& local_rotation = entity.GetComponent<Rotation>()->rotation;
+
+    //    // calculate the transform
+
+    //    Matrix4x4 local_translation_matrix = Matrix4x4::Translate(Matrix4x4::Identity, Vector3(-local_position.x, local_position.y, 0.0f));
+    //    Matrix4x4 rotation_matrix = Quaternion::FromEulerAnglesDeg(local_rotation).ToRotationMatrix();
+    //    Matrix4x4 scale_matrix = Matrix4x4::Scale(Matrix4x4::Identity, local_scale);
+
+    //    local_transform = parent_transform * local_translation_matrix * rotation_matrix * scale_matrix;
+
+    //    Log::Debug(FlexECS::Scene::GetActiveScene()->Internal_StringStorage_Get(*entity.GetComponent<EntityName>()));
+    //}
   }
 
 }

@@ -1,0 +1,109 @@
+#include "battlecomponents.h"
+
+namespace ChronoShift 
+{
+  #pragma region Character Components
+  FLX_REFL_REGISTER_START(Action)
+    FLX_REFL_REGISTER_PROPERTY(move_to_use)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(EffectValues)
+    FLX_REFL_REGISTER_PROPERTY(duration)
+    FLX_REFL_REGISTER_PROPERTY(value)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(StatusEffects)
+    FLX_REFL_REGISTER_PROPERTY(strength)
+    FLX_REFL_REGISTER_PROPERTY(speed)
+  FLX_REFL_REGISTER_END;
+
+  /*FLX_REFL_REGISTER_START(MoveList)
+    FLX_REFL_REGISTER_PROPERTY(move_one)
+    FLX_REFL_REGISTER_PROPERTY(move_two)
+    FLX_REFL_REGISTER_PROPERTY(move_three)
+    FLX_REFL_REGISTER_PROPERTY(move_four)
+  FLX_REFL_REGISTER_END;*/
+
+  FLX_REFL_REGISTER_START(CharacterStatus)
+    FLX_REFL_REGISTER_PROPERTY(character_status)
+  FLX_REFL_REGISTER_END;
+
+  #pragma endregion
+
+
+  #pragma region Move Components
+  FLX_REFL_REGISTER_START(MoveID)
+    FLX_REFL_REGISTER_PROPERTY(move_name)
+  FLX_REFL_REGISTER_END;
+  
+  FLX_REFL_REGISTER_START(MoveDuration)
+    FLX_REFL_REGISTER_PROPERTY(move_duration)
+  FLX_REFL_REGISTER_END;
+  
+  FLX_REFL_REGISTER_START(MoveCooldown)
+    FLX_REFL_REGISTER_PROPERTY(move_cooldown)
+  FLX_REFL_REGISTER_END;
+  #pragma endregion
+
+
+  #pragma region Battle Components
+  FLX_REFL_REGISTER_START(BattleState)
+    FLX_REFL_REGISTER_PROPERTY(phase)
+    FLX_REFL_REGISTER_PROPERTY(active_character)
+    FLX_REFL_REGISTER_PROPERTY(target_one)
+    FLX_REFL_REGISTER_PROPERTY(target_two)
+    FLX_REFL_REGISTER_PROPERTY(target_three)
+    FLX_REFL_REGISTER_PROPERTY(target_four)
+    FLX_REFL_REGISTER_PROPERTY(target_five)
+    FLX_REFL_REGISTER_PROPERTY(current_target_count)
+    //FLX_REFL_REGISTER_PROPERTY(selected_targets)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(BattleSlot)
+    FLX_REFL_REGISTER_PROPERTY(slot_number)
+    FLX_REFL_REGISTER_PROPERTY(character)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(PlayerSlot)
+    FLX_REFL_REGISTER_PROPERTY(slot_number)
+    FLX_REFL_REGISTER_PROPERTY(character)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(EnemySlot)
+    FLX_REFL_REGISTER_PROPERTY(slot_number)
+    FLX_REFL_REGISTER_PROPERTY(character)
+  FLX_REFL_REGISTER_END;
+  
+  FLX_REFL_REGISTER_START(TurnOrderDisplay)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(MoveButton)
+    FLX_REFL_REGISTER_PROPERTY(move_number)
+  FLX_REFL_REGISTER_END;
+
+  #pragma endregion
+
+  FLX_REFL_REGISTER_START(ChronoGear)
+    FLX_REFL_REGISTER_PROPERTY(chrono_gear_name)
+    FLX_REFL_REGISTER_PROPERTY(chrono_gear_description)
+    FLX_REFL_REGISTER_PROPERTY(main_stat)
+    FLX_REFL_REGISTER_PROPERTY(sub_stat_one)
+    FLX_REFL_REGISTER_PROPERTY(sub_stat_two)
+    FLX_REFL_REGISTER_PROPERTY(sub_stat_three)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(Weapon)
+    FLX_REFL_REGISTER_PROPERTY(weapon_name)
+    FLX_REFL_REGISTER_PROPERTY(weapon_description)
+    FLX_REFL_REGISTER_PROPERTY(weapon_type)
+    FLX_REFL_REGISTER_PROPERTY(weapon_move_one)
+    FLX_REFL_REGISTER_PROPERTY(weapon_move_two)
+    FLX_REFL_REGISTER_PROPERTY(weapon_move_three)
+  FLX_REFL_REGISTER_END;
+
+  FLX_REFL_REGISTER_START(Stat)
+    FLX_REFL_REGISTER_PROPERTY(stat_name)
+    FLX_REFL_REGISTER_PROPERTY(base_stat_value)
+    FLX_REFL_REGISTER_PROPERTY(current_stat_value)
+  FLX_REFL_REGISTER_END;
+}

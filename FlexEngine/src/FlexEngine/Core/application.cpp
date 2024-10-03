@@ -4,6 +4,7 @@
 
 #include "StateManager/statemanager.h"
 #include "input.h"
+#include "FMOD/FMODWrapper.h"
 
 namespace FlexEngine
 {
@@ -20,12 +21,14 @@ namespace FlexEngine
 
     // initialize glfw
     FLX_CORE_ASSERT(glfwInit(), "Failed to initialize GLFW!");
+    FMODWrapper::Load();
   }
 
   Application::~Application()
   {
     glfwMakeContextCurrent(NULL);
     glfwTerminate();
+    FMODWrapper::Unload();
 
     FLX_FLOW_ENDSCOPE();
   }
@@ -112,6 +115,7 @@ namespace FlexEngine
 
       // run the application state
       ApplicationStateManager::Update();
+      FMODWrapper::Update();
 
       // quit application
       if (

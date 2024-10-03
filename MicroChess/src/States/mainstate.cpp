@@ -3,7 +3,7 @@
 #include "States.h"
 #include "Layers.h"
 
-namespace MicroChess
+namespace ChronoShift
 {
 
   void MainState::OnEnter()

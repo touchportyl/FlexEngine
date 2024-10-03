@@ -270,6 +270,10 @@ namespace FlexEngine
       // They only work on the current active scene.
       static void SetEntityFlags(EntityID& entity, const uint8_t flags);
 
+      static EntityID CloneEntity(EntityID entityToCopy);
+
+      static void SaveEntityAsPrefab(EntityID entityToSave, const std::string& prefabName);
+
       #pragma endregion
 
       #pragma region Scene serialization functions

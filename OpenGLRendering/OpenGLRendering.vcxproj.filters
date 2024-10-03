@@ -53,6 +53,9 @@
     <ClInclude Include="src\Layers.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Components\Prefab.h">
+      <Filter>src\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\renderer.frag">

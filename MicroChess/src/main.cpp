@@ -3,7 +3,7 @@
 
 #include "States.h"
 
-namespace MicroChess
+namespace ChronoShift
 {
   class FlexApplication : public FlexEngine::Application
   {
@@ -20,6 +20,6 @@ namespace FlexEngine
 {
   Application* CreateApplication()
   {
-    return new MicroChess::FlexApplication();
+    return new ChronoShift::FlexApplication();
   }
 }
